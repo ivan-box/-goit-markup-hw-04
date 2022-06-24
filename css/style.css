@@ -8,7 +8,7 @@ p,
 ul {
   padding: 0;
   margin: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 :root {
@@ -21,6 +21,7 @@ ul {
   --footer-bg-color: #2f303a;
   --footer-text-color: rgba(255, 255, 255, 0.6);
   --border-color: #ececec;
+  --secondary-border-color: #afb1b8;
 }
 
 body {
@@ -60,7 +61,7 @@ body {
   display: flex;
 }
 
-/* хедер і навігація */
+/* header */
 
 .wrapper-nav {
   display: flex;
@@ -75,6 +76,29 @@ body {
   display: flex;
   align-self: center;
   margin-left: auto;
+}
+
+.contacts-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-mail {
+  fill: currentColor;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.header-tel {
+  fill: currentColor;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.header-mail:hover,
+.header-tel:hover,
+.header-mail:focus,
+.header-tel:focus {
+  fill: currentColor;
 }
 
 .wrapper-contacts li:not(:last-child) {
@@ -129,13 +153,20 @@ body {
   color: var(--accent-color);
 }
 
-/* герой */
+/* hero */
 
 .hero {
+  width: 1600px;
   background-color: var(--footer-bg-color);
+  background-image: url(../image/hero-bg.jpg);
+  background: linear-gradient rgba(47, 48, 58, 0.4);
+  background-repeat: no-repeat;
+  background-position: center;
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-title {
@@ -162,7 +193,22 @@ body {
   background-color: var(--accent-color);
 }
 
-/* наші переваги */
+/* our advantages */
+
+.advantage-icon {
+}
+
+.wrapper-icon {
+  display: flex;
+  width: 270px;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-color: var(--secondary-bg-color);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
 
 .advantage {
   width: calc((100% - 90px) / 4);
@@ -173,9 +219,20 @@ body {
   margin-right: 0;
 }
 
-.title-advantages {
-  display: none;
+.title-advantages.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
+
 .advantages-title {
   font-weight: 700;
   font-size: 14px;
@@ -198,7 +255,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* чим ми займаємось */
+/* what we do */
 
 .trade {
   padding-top: 0;
@@ -212,7 +269,7 @@ body {
 .study:nth-child(3n) {
   margin-right: 0;
 }
-/* наша команда */
+/* our team */
 
 .team {
   background-color: var(--secondary-bg-color);
@@ -221,20 +278,18 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
-  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .team-position {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.19;
+  margin-bottom: 16px;
   color: var(--secondary-text-color);
 }
 
-.card div {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
 .card {
   width: calc((100% - 90px) / 4);
   margin-right: 30px;
@@ -249,10 +304,76 @@ body {
   margin-right: 0;
 }
 
-/* портфоліо */
+.social-network-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
 
-.title-examples {
-  display: none;
+.social-network-icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.social-network-icon:hover,
+.social-network-icon:focus {
+  background-color: var(--accent-color);
+}
+
+.social-network-icon:hover .social-icon,
+.social-network-icon:focus .social-icon {
+  --color4: #ffffff;
+}
+
+/* Regular Customers */
+
+.customers-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.customer-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--secondary-border-color);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.customer-card:hover,
+.customer-card:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.customer-card:hover .customers-icon,
+.customer-card:focus .customers-icon {
+  --color5: var(--accent-color);
+}
+
+/* portfolio */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .examples-works {
@@ -286,6 +407,8 @@ body {
 .buttons:focus {
   color: var(--accent-text-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .examples-title {
@@ -310,6 +433,15 @@ body {
   margin-bottom: 30px;
 }
 
+.card-portfolio:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.examples-buttons {
+  border-radius: 4px;
+}
+
 /* .card-portfolio:nth-child(n + 3) {
   margin-bottom: 0;
 } */
@@ -323,12 +455,47 @@ body {
   margin-right: 0;
 }
 
-/* футер */
+/* footer */
 
 .footer {
   background-color: var(--footer-bg-color);
   padding-bottom: 60px;
   padding-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.footer-container-logo {
+  margin-right: 70px;
+}
+
+.subscribe {
+  margin-top: 13px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+
+.social-footer-icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  --color4: #ffffff;
+  cursor: pointer;
+}
+
+.social-footer-icon:hover,
+.social-footer-icon:focus {
+  background-color: var(--accent-color);
 }
 
 .logo-footer {
